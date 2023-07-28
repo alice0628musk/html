@@ -54,10 +54,36 @@ header {
 }
 
 main {
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
   height: 200px;
 }
 
-footer {
-  height: 100px;
-  border-bottom: 1px solid #000;
+.sec-g {
+  height: 180px;
+  width: 30%;
+  background: red;
 }
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #000;
+  height: 100px;
+}
+
+.copylight {
+  text-align: center;
+}
+
+footer .famillysite a {
+  padding: 10px;
+}
+
+.logo-foot img {
+  filter: grayscale(100%);
+}
+
+/* https://www.w3schools.com/css/css3_images.asp */
