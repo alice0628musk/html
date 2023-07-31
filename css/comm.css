@@ -182,6 +182,7 @@ footer {
   align-items: center;
   border-top: 1px solid #000;
   height: 100px;
+  /* text-align: center; */
 }
 
 .copylight {
