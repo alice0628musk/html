@@ -14,11 +14,22 @@
 .wrap {
   width: 1200px;
   margin: auto;
-  background: lightblue;
+}
 
+/* 실무에서만 사용 */
+.blind {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 0;
+  width: 0;
+  height: 0;
+  line-height: 0;
 }
 
 header {
+  position: relative;
+  z-index: 1000;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -30,10 +41,38 @@ header {
   display: flex;
 }
 
-.gnb .gnb-depth1 li a {
-  padding: 20px;
-  font-size: 23px;
+/* 네비게이션할때만 쓴다 */
+.gnb .gnb-depth1>li {
+  position: relative;
 }
+
+/*.10태그10점 일반태그 1점 22점짜리 */
+.gnb .gnb-depth1>li>a {
+  display: block;
+  width: 120px;
+  font-size: 23px;
+  text-align: center;
+}
+
+.gnb .gnb-depth2 {
+  position: absolute;
+  top: 60px;
+  left: 0;
+  width: 100%;
+  padding: 10px 0;
+  background: #434748;
+}
+
+.gnb .gnb-depth2 li a {
+  display: block;
+  padding: 7px 0;
+  color: white;
+  font-size: 16px;
+  text-align: center;
+  /* 폰트사이즈를 줘도 안먹는 이유 우선순위로 태그가 먹어지기때문 */
+  /* https://www.w3schools.com/css/css_specificity.asp */
+}
+
 
 .slide {
   position: relative;
@@ -61,6 +100,8 @@ main {
 }
 
 .sec-g {
+  position: relative;
+  /* 더보기 버튼때문에 넣어준거임 */
   height: 180px;
   width: 30%;
 }
@@ -72,23 +113,67 @@ main {
   font-size: 20px;
 }
 
-.lst-bbs li {
-  position: relative;
+.sec-g .link-more {
+  position: absolute;
+  top: 3px;
+  right: 0;
+  /* 포지션 앱솔루트는 공중에 띄워주며 탑0 레프트0 세트이다 */
 }
 
+.lst-gallery {
+  display: flex;
+  justify-content: space-between
+}
+
+.lst-gallery li {
+  width: 30%;
+}
+
+.lst-gallery img {
+  display: block;
+  width: 100%;
+  height: 80px;
+  /* object-fit: contain;모든이미지의화면이들어오나흰여백이남음 */
+  object-fit: cover;
+  /* https://www.w3schools.com/css/css3_object-fit.asp */
+  object-position: 50% 0;
+  /* https://www.w3schools.com/css/css3_object-position.asp */
+  border-radius: 3px;
+  /* 이미지라운드굴리기 */
+}
+
+.lst-gallery p {
+  font-size: 14px;
+  /* 최소 폰트 스마트폰기준 */
+  margin-top: 5px;
+}
+
+.lst-bbs li {
+  position: relative;
+  padding-left: 10px;
+}
+
+/* 시험때는 이거 안해도되고 그냥 네모 넣어도되 */
 .lst-bbs li::before {
   content: "";
   position: absolute;
-  top: 9px;
+  /* 포지션 엡솔루트는 공중에 뜬채로 고정됨 */
+  top: 8px;
   left: 0;
-  width: 3px;
-  height: 3px;
+  transform: translate(-50%);
+  width: 10px;
+  height: 10px;
+  background: green
 }
 
 
 .lst-bbs a {
+  display: block;
+  overflow: hidden;
   font-size: 14px;
   padding: 2px 0;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 footer {
