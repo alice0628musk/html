@@ -217,7 +217,7 @@ main {
   position: absolute;
   /* 포지션 엡솔루트는 공중에 뜬채로 고정됨 */
   top: 8px;
-  left: 0;
+  left: 5px;
   transform: translate(-50%);
   width: 10px;
   height: 10px;
@@ -229,7 +229,7 @@ main {
   display: block;
   overflow: hidden;
   font-size: 14px;
-  padding: 2px 0;
+  padding: 2px 5px;
   white-space: nowrap;
   text-overflow: ellipsis;
 }
@@ -255,27 +255,29 @@ footer .famillysite a {
   filter: grayscale(100%);
 }
 
+/* modal */
 .modal-dimmed {
-  position: fixed;
+  display: none;
   justify-content: center;
   align-items: center;
-  display: flex;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
+  z-index: 9999;
   background: rgb(0, 0, 0, 0.5);
 }
 
 .modal-box {
-  display: none;
+  /* display: none; */
   position: relative;
-  padding: 50px;
   width: 500px;
   height: 300px;
+  padding: 50px;
   background: #fff;
-  border-radius: 5px;
   border: 1px solid #eee;
+  border-radius: 10px;
   text-align: center;
 }
 
@@ -289,11 +291,12 @@ footer .famillysite a {
   right: 2px;
   width: 50px;
   height: 50px;
-  border-radius: 50px;
-  cursor: pointer;
   background: #000;
+  border-radius: 50px;
+  border: none;
   color: #fff;
   font-size: 20px;
+  cursor: pointer;
 }
 
 /* https://www.w3schools.com/css/css3_images.asp */
